@@ -63,7 +63,7 @@ def fgs(model, input, target, step_size=0.1, train_mode=False, mode=None, verbos
     output = model(input_var)
     if is_gpu:
         cpu_targets = target.clone()
-        target = target.cuda(async=True)
+        target = target.cuda()
     else:
         cpu_targets = target
     target_var = torch.autograd.Variable(target)
